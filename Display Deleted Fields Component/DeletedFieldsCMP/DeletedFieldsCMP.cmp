@@ -1,0 +1,16 @@
+<aura:component implements="force:lightningQuickAction">
+
+    <aura:attribute name="popupWidth" type="Integer" default="800"/>
+    <aura:attribute name="popupHeight" type="Integer" default="500" />
+    <aura:attribute name="positionTop" type="Integer" default="0" />
+    <aura:attribute name="positionLeft" type="Integer" default="0" />
+    
+    <aura:attribute name="sObjectId" type="String" />
+    <aura:attribute name="deletedFieldsPageURL" type="String" default="/p/setup/layout/DeletedFieldList?type=" />
+    <aura:attribute name="pageURLMidString" type="String" default="/lightning/setup/ObjectManager/"/>
+    <aura:attribute name="pageURLEndString" type="String" default="/view"/>
+    <aura:attribute name="warningMessage" type="String" default="Looks like you are not on the object setup page. Please navigate to the object setup page via Setup -> Object Manager -> Select object" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.openDeletedFieldsWindow}"/>
+
+</aura:component>
