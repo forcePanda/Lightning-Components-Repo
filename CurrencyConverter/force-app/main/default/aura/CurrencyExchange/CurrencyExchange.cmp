@@ -1,0 +1,104 @@
+<aura:component controller="CurrencyExchangeCMPController" implements="lightning:utilityItem">
+    
+    <aura:attribute name="title" type="String" 
+                    description="Title of the component" /> 
+    
+    <aura:attribute name="currencyList" type="Object[]" 
+                    description="List of Object type to store the list of the currencies(currency label and codes)" />
+    <aura:attribute name="exchangeRate" type="Decimal" default="1" 
+                    description="Exchange rate between the Base currency and selected currency" />
+    
+    <aura:attribute name="baseCurrencyCode" type="String" 
+                    description="Base currency code" />
+    <aura:attribute name="defaultBaseCurrency" type="String" default="EUR"
+                    description="Default value of Base currency code" />
+    <aura:attribute name="baseCurrencyValue" type="Decimal" default="1"
+                    description="Input value of the Base currency" />
+    
+    <aura:attribute name="toCurrencyCode" type="String"
+                    description="Currency code of currency for which the exchange rate has to be calculated" />
+    <aura:attribute name="toCurrencyValue" type="Decimal" default="1"
+                    description="Output value of Base currency input amount after currency conversion" />
+    
+    <aura:attribute name="showSpinner" type="Boolean" default = "false"
+                    description="Attribute to show/hide spinner" />
+    
+    <!-- Error handling attributes -->
+    <aura:attribute name="showError" type="Boolean" default = "false"
+                    description="Attribute to show/hide error" />
+    <aura:attribute name="errorMessage" type="String"
+                    description="Attribute storing the error message" />
+    
+	<!-- Handling component initialization -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}" />
+    
+    <!-- Main component body -->
+    <div>
+        <lightning:card class="slds-is-relative">
+            <!-- Card Title -->
+            <aura:set attribute="title">
+                <lightning:layout verticalAlign="end">
+                    
+                    <lightning:layoutItem>
+                        <span class="slds-page-header__title">
+                            <lightning:icon iconName="utility:moneybag" size="small"/>
+                        </span>
+                    </lightning:layoutItem>
+                    
+                    <lightning:layoutItem class="slds-p-horizontal_small" >
+                        <span class="slds-page-header__title">{! v.title }</span>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </aura:set>
+            
+            <!-- Spinner -->
+            <aura:if isTrue="{!v.showSpinner}">
+                <lightning:spinner variant="brand" alternativeText="Loading" />
+            </aura:if>
+            
+            <!-- Error Message box -->
+            <aura:if isTrue="{!v.showError}">
+                <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                    <h2>Error: {!v.errorMessage}</h2>
+                </div>
+            </aura:if>
+            
+            <br/>
+            
+            <!-- Exchange Rate Display -->
+            <aura:if isTrue="{! not(v.showError)}">
+                <div class="exchangeRateDisplayClass">
+                    <span> Exchange Rate: {!v.exchangeRate}</span>
+                </div>
+            </aura:if>
+            
+            <!-- Card Body -->            
+            <lightning:layout verticalAlign="end" horizontalAlign="spread" multipleRows="true">
+                <lightning:layoutItem size="6" padding="around-small">
+                    <!-- Base currency input -->
+                    <lightning:input type="number" name="baseCurrencyValue" step="0.01" 
+                                     label="" value="{!v.baseCurrencyValue}" formatter="decimal"
+                                     onchange="{! c.handleBaseCurrencyValueChange }"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="6" padding="around-small">
+                    <!-- Base Currency selector -->
+                	<lightning:combobox label="Select Base currency" value="{! v.baseCurrencyCode}" 
+                                        options="{! v.currencyList }" onchange="{! c.handleBaseCurrencyChange }"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="6" padding="around-small">
+                    <!-- To currency input -->
+                    <lightning:input class="inputReadOnly" type="number" name="toCurrencyValue" step="0.01" formatter="decimal"
+                                     value="{!v.toCurrencyValue}" readonly="true"/>
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem size="6" padding="around-small">
+                    <!-- Currency(to convert to) selector -->
+                    <lightning:combobox label="Select currency" value="{!v.toCurrencyCode}" 
+                                        options="{! v.currencyList }" onchange="{! c.handleToCurrencyChange }"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+            
+        </lightning:card>
+    </div>
+    <!-- End of component body -->
+</aura:component>

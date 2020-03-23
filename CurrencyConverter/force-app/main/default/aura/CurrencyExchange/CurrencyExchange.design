@@ -1,0 +1,3 @@
+<design:component>
+    <design:attribute name="title" label="Component title" default="Currency Converter" required="true"/>
+</design:component>

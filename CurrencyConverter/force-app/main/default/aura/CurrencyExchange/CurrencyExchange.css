@@ -1,0 +1,11 @@
+.THIS .exchangeRateDisplayClass{
+    margin-left: auto;
+    background-color : rgb(0, 95, 178);
+    padding : 0.5rem;
+    color : white;
+    font-size: 0.8125rem;
+}
+
+.THIS .inputReadOnly{
+    padding: 0 1rem 0 .75rem;
+}
