@@ -3,8 +3,4 @@ A demo component to show how you can open a modal in fullscreen in an aura compo
 
 For more details, read here: 
 
-To install in your org directly, use this unmanaged  package Link: 
-
-
-
-
+To install in your org directly, use this unmanaged  package Link:
