@@ -1,0 +1,15 @@
+<aura:component implements="lightning:utilityItem">
+
+    <aura:attribute name="modalTitle" type="String" default="Demo Modal"/>
+    <aura:attribute name="showModal" type="Boolean" default="false"/>
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <lightning:card>
+        <lightning:textarea aura:id="modalBody" placeholder="Enter text to display as modal body" />
+        <aura:set attribute="footer">
+            <lightning:button label="Show Modal" variant="brand" onclick="{!c.showModal}" />
+        </aura:set>
+    </lightning:card>
+
+</aura:component>	
