@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+
+    <aura:attribute name="eventName" type="String" />
+    <aura:attribute name="channelPrefix" type="String" default="/event/"/>
+    <aura:attribute name="eventPayload" type="String" />
+    <aura:attribute name="subscription" type="Map" />
+
+    <aura:attribute name="objectApiName" type="String"/>
+    <aura:attribute name="fieldApiName" type="String"/>
+    <aura:attribute name="newFieldValue" type="String" description="The new(updated) value of the field."/>
+    <aura:attribute name="detectAllChanges" type="Boolean" default="false"/>
+    
+    <aura:attribute name="quickActionApiName" type="String" />
+    <aura:attribute name="isQuickActionAvailable" type="Boolean" default="false"/>
+    <aura:attribute name="quickActionNotAvailableError" type="String" default="The Quick Action is not available. Make sure the API name is correct and the action is added to the page layout." />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <lightning:empApi aura:id="empApi" />
+    <lightning:quickActionAPI aura:id="quickActionAPI"/>
+
+</aura:component>
