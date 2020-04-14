@@ -35,6 +35,15 @@
         var fieldName = cmp.get("v.fieldApiName");
         var fieldValue = cmp.get("v.newFieldValue");
         var payload = eventPayload.data.payload;
+
+        /* Check to see if the change was being made my current logged in user */
+        var userId = $A.get( "$SObjectType.CurrentUser.Id" );
+        if(!payload.hasOwnProperty(fieldName) || 
+            payload.ChangeEventHeader.commitUser !== userId
+          ) {
+            return;
+          }
+
         if(payload.hasOwnProperty(fieldName)) { // Checking if the payload has the field as a property
             if(payload[fieldName] === fieldValue || cmp.get("v.detectAllChanges")) {
                 this.fireQuickAction(cmp);
