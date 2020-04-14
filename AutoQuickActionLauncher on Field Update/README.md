@@ -3,4 +3,4 @@ This is a ready to use Aura component that can be used to automatically invoke Q
 
 For more details, read here: <blog post link>
 
-To install in your org directly, use this unmanaged  package Link: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000003zHPE
+To install in your org directly, use this unmanaged  package Link: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000003zHPJ
