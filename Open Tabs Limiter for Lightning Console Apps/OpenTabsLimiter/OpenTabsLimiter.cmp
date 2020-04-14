@@ -1,0 +1,14 @@
+<aura:component implements="lightning:backgroundUtilityItem">
+
+    <aura:attribute name="cmpName" type="String" default="OpenTabsLimiter"/>
+    
+    <aura:attribute name="maxTabsLimit" type="Integer"/>
+    <aura:attribute name="maxLimitErrorMessage" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>"
+    <aura:handler event="lightning:tabCreated" action="{!c.handleTabCreation}"/>
+    
+    <lightning:workspaceAPI aura:id="workspace" />
+    
+
+</aura:component>	

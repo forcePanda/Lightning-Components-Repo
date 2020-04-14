@@ -1,0 +1,6 @@
+<design:component >
+    <design:attribute name="maxTabsLimit" label="Limit maximum tabs to" required="true" default="5"
+                      description="Maximum number of open tabs allowed."/>
+    <design:attribute name="maxLimitErrorMessage" label="Error Message" required="true" default="You can only open 5 tabs at max in this app. Please close some existing tabs before you open a new tab."
+                      description="Message to show when the max open tabs limit is reached."/>
+</design:component>
