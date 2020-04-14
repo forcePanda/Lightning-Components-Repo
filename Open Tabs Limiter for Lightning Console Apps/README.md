@@ -1,5 +1,5 @@
 # Open Tabs Limiter for Lightning Console Apps
-This is a  ready to use component that you can use in your org(s) to limit the maximum number of tabs a user can open in a Lightning console application.
+This is a ready to use Aura component that you can use in your org(s) to limit the maximum number of tabs a user can open in a Lightning console application.
 
 For more details, read here: <blog post link>
 
