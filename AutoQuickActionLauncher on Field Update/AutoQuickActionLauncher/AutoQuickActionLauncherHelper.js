@@ -33,7 +33,7 @@
     
     eventHandler : function(cmp, eventPayload) {
         var fieldName = cmp.get("v.fieldApiName");
-        var fieldValue = cmp.get("v.newFieldValue");
+        var fieldValue = cmp.get("v.newFieldValue") ? cmp.get("v.newFieldValue") : null;
         var payload = eventPayload.data.payload;
 
         /* Check to see if the change was being made my current logged in user */
