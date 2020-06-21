@@ -1,0 +1,30 @@
+<aura:component controller="MediaFileComponentController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="mediaFiles" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="showModal" type="Boolean" default="false"/>
+    <aura:attribute name="mediaFile" type="Object"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:datatable data="{! v.mediaFiles }" columns="{! v.mycolumns }" keyField="Id"
+                         hideCheckboxColumn="true" onrowaction="{! c.playFile }" />
+    
+    <aura:if isTrue="{!v.showModal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{! c.closeModal }"
+                                          alternativeText="close" variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                        <strong>Media Player:</strong>&nbsp;{!v.mediaFile.name}
+                    </h2>
+                </header>
+                <div aura:id="mediaPlayer" class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>   
+</aura:component>
