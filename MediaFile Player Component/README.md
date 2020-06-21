@@ -2,7 +2,7 @@
 This is an aura component that you can use to play multimedia type(video and audio) Salesforce files in Lightning.
 
 
-Use this link to install the component: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F00000415pI
+Use this link to install the component: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000003zIEW
 
 ### TODO
 - Add blogpost link
