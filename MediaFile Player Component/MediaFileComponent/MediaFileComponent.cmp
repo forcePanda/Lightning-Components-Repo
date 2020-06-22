@@ -22,6 +22,7 @@
                     </h2>
                 </header>
                 <div aura:id="mediaPlayer" class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <c:MediaPlayerComponent mediaFile="{!v.mediaFile}"/>
                 </div>
             </div>
         </section>

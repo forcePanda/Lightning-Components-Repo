@@ -33,8 +33,6 @@
             console.log('Play file: ' + JSON.stringify(row));
             component.set("v.mediaFile", row);
             component.set("v.showModal", true);
-            
-            helper.createMediaPlayerComponent(component,row);
         }
         
     },
