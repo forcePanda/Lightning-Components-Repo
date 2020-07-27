@@ -1,0 +1,9 @@
+<design:component>
+    <!-- Design attribute to set the height of the component in the Lightning page -->
+    <design:attribute name="height" label="Height(in pixels)" />
+
+    <!-- Design attribute to set a default Twitter handle -->
+    <design:attribute name="twitterHandle" 
+                      label="Default Twitter Handle"
+                      description="This handle will get overridden if the record has a twitter handle"/>
+</design:component>

@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+	
+    <!-- Attribute for Twitter Handle-->
+    <aura:attribute name="twitterHandle" type="string" />
+    
+    <!--  Attribute for component height -->
+    <aura:attribute name="height" type="Integer" default="400"/>
+    
+    <!-- Lighnting Data Service Attributes -->
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="error" type="String"/>
+    
+    <!-- Lighnting Data Service to get record data -->
+    <force:recordData aura:id="RecordDetails"
+        recordId="{!v.recordId}"
+        layoutType="COMPACT"
+        fields="Id,Twitter_Handle__c"
+        mode="VIEW"
+        targetRecord="{!v.record}"
+        targetFields="{!v.simpleRecord}"
+        targetError="{!v.error}"
+        recordUpdated="{!c.handleRecordUpdated}" />
+    
+    <!-- Embedding the visualforce page in an iframe and passing the Twitter Handle as a parameter -->
+    <iframe src="{!'/apex/TweetFeedPage?twitterHandle='+v.twitterHandle}" width="100%" height="{! v.height+'px'}" frameBorder="0"/>
+                    
+</aura:component>
