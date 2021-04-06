@@ -1,0 +1,18 @@
+<aura:component implements="lightning:isUrlAddressable">
+
+    <aura:attribute name="flowApiName" type="String" required="true"/>
+    <aura:attribute name="returnURL" type="String"/>
+    
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <!-- Flow container -->
+    <lightning:card>
+        <lightning:flow 
+            aura:id="flow"
+            onstatuschange="{!c.handleStatusChange}"
+        />
+    </lightning:card>
+</aura:component>	
