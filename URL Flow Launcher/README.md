@@ -7,7 +7,7 @@ For more details about the component and it's working, refer this blog post: htt
 
 Use the following link(s) to install the unmanaged package: 
 
-| Version | Fixes |Package Link	    
+| Version | Fixes |Package Link*	    
 |-|-|-|
 | 1.0 | Base Version | https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000001ZLx0 |
 
