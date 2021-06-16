@@ -5,10 +5,7 @@
 
         const inputVariables = this.getFlowInputVariables(cmp);
 
-        flow.startFlow(
-            cmp.get("v.flowApiName"),
-            inputVariables
-        );
+        flow.startFlow( cmp.get("v.flowApiName"), inputVariables );
     },
 
     getFlowInputVariables : function(cmp) {
@@ -37,13 +34,12 @@
              * the flow engine smartly auto converts the data type from String to the actual data type.
              * Tested for: Text, Text Collection, Number, Boolean and Date.
              * For Date, the date param should be passed as text. For example, {!TEXT(TODAY())}.
-             * Same didn't work datetime data type.
+             * Same didn't work datetime data type though.
              */
             inputVariable.type = 'String'; 
 
             inputVariables.push(inputVariable);
         }
-        console.log(inputVariables);
         return inputVariables;
     },
 

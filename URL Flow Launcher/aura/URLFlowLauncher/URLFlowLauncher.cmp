@@ -2,11 +2,12 @@
 
     <aura:attribute name="flowApiName" type="String" required="true"/>
     <aura:attribute name="returnURL" type="String"/>
-    
-    <lightning:navigation aura:id="navService"/>
     <aura:attribute name="pageReference" type="Object"/>
 
+    <lightning:navigation aura:id="navService"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.refresh}" />
 
     <!-- Flow container -->
     <lightning:card>
