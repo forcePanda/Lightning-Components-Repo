@@ -11,4 +11,5 @@ Use the following link(s) to install the unmanaged package:
 |-|-|-|
 | 1.0 | Base Version | https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000001ZLx0 |
 | 1.1 | Fix: Caching Issue  | https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000001ZLx5 |
+
 *To install the package in sandbox, replace login.salesforce.com with test.salesforce.com.
