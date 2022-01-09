@@ -1,0 +1,22 @@
+<template>
+    <!-- <div style="height: 300px;">
+        
+    </div> -->
+    
+    <lightning-card title="Mass File Downloader">
+        <lightning-button 
+            variant="brand" 
+            label="Download Files" 
+            title="Download files" 
+            icon-name="utility:download" 
+            class="slds-m-left_x-small"
+            slot="actions"
+            onclick={downloadFiles}
+        ></lightning-button>
+        <lightning-datatable
+                key-field="Id"
+                data={files.data}
+                columns={columns}>
+        </lightning-datatable>
+    </lightning-card>
+</template>
