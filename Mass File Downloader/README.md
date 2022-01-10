@@ -1,6 +1,6 @@
 # Mass File Download Component
 
-A web component to facilitate downloading of files(as a zip) for the given IDs. Component can be embedded on the home page. It's a very basic version which can be extended based on the business use case.
+A web component to facilitate downloading of files(as a zip). Component can be embedded on the home page. It's a very basic version which can be extended based on the business use case.
 
 Related blogpost:
 
