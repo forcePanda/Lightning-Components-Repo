@@ -76,8 +76,8 @@ export default class Demo extends LightningElement {
 
     query() {
         soqlUtil.query(
-            'SELECT Id,Name FROM Account Rating = :rating'
-            , {
+            'SELECT Id,Name FROM Account Rating = :rating', 
+            {
                 rating : 'Hot'
             }
         )
@@ -95,8 +95,8 @@ export default class Demo extends LightningElement {
 
     query() {
         soqlUtil.query(
-            'SELECT Id,Name FROM Account Rating = :rating'
-            , {
+            'SELECT Id,Name FROM Account Rating = :rating',
+            {
                 rating : 'Hot'
             },
             soqlUtil.ACCESS_LEVEL.SYSTEM_MODE
