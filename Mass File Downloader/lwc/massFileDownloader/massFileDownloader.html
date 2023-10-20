@@ -1,9 +1,8 @@
 <template>
-    <!-- <div style="height: 300px;">
-        
-    </div> -->
-    
     <lightning-card title="Mass File Downloader">
+        <div class="slds-box slds-theme_default slds-p-around_medium">
+            <lightning-textarea label="Download URL" value={downloadUrl} readonly></lightning-textarea>
+        </div>
         <lightning-button 
             variant="brand" 
             label="Download Files" 
@@ -16,7 +15,8 @@
         <lightning-datatable
                 key-field="Id"
                 data={files.data}
-                columns={columns}>
+                columns={columns}
+                onrowselection={handleRowSelection}>
         </lightning-datatable>
     </lightning-card>
 </template>
