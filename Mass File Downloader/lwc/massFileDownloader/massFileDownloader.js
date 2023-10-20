@@ -23,6 +23,7 @@ const BASE_DOWNLOAD_PATH = '/sfc/servlet.shepherd/version/download';
 export default class MassFileDownloader extends LightningElement {
     
     columns = COLUMNS;
+    downloadString = '';
 
     @wire(getFiles) files;
 
@@ -40,6 +41,11 @@ export default class MassFileDownloader extends LightningElement {
         );
     }
 
+    handleRowSelection(event) {
+        let selectedFiles = event.detail.selectedRows;
+        this.downloadString = this.getDownloadString(selectedFiles);
+    }
+
     getDownloadString(files) {
         let downloadString = '';
         files.forEach(item => {
@@ -48,9 +54,17 @@ export default class MassFileDownloader extends LightningElement {
         return downloadString;
     }
 
-    initDownloading(downloadString) {
-        alert(BASE_DOWNLOAD_PATH + downloadString);
-        //window.open(BASE_DOWNLOAD_PATH + downloadString, '_blank');
+    get downloadUrl() {
+        return BASE_DOWNLOAD_PATH + this.downloadString;
+    }
+
+    initDownloading() {
+        if (this.downloadString === '') {
+            alert('No files selected');
+            return;
+        }
+        //alert(this.downloadUrl);
+        window.open(this.downloadUrl, '_blank');
     }
 
     getSelectedRows() {
